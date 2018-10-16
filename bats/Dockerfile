@@ -5,7 +5,7 @@ LABEL "maintainer"="GitHub Actions <support+actions@github.com>"
 LABEL "version"="1.0.0"
 
 LABEL "com.github.actions.name"="Bats for GitHub Actions"
-LABEL "com.github.actions.description"="Bash Automted Testing System for Actions"
+LABEL "com.github.actions.description"="Bash Automated Testing System for Actions"
 LABEL "com.github.actions.icon"="terminal"
 LABEL "com.github.actions.color"="gray-dark"
 

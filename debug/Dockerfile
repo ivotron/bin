@@ -5,7 +5,7 @@ LABEL "maintainer"="GitHub Actions <support+actions@github.com>"
 LABEL "version"="1.0.0"
 
 LABEL "com.github.actions.name"="Debug for GitHub Actions"
-LABEL "com.github.actions.description"="print debugging information about the running action"
+LABEL "com.github.actions.description"="Print debugging information about the running action"
 LABEL "com.github.actions.icon"="code"
 LABEL "com.github.actions.color"="gray-dark"
 
