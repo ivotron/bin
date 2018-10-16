@@ -5,7 +5,7 @@ LABEL "maintainer"="GitHub Actions <support+actions@github.com>"
 LABEL "version"="1.0.0"
 
 LABEL "com.github.actions.name"="Filters for GitHub Actions"
-LABEL "com.github.actions.description"="common filters to stop workflows"
+LABEL "com.github.actions.description"="Common filters to stop workflows"
 LABEL "com.github.actions.icon"="filter"
 LABEL "com.github.actions.color"="gray-dark"
 
