@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 LABEL "name"="filter"
 LABEL "maintainer"="GitHub Actions <support+actions@github.com>"
-LABEL "version"="1.0.0"
+LABEL "version"="1.0.2"
 
 LABEL "com.github.actions.name"="Filters for GitHub Actions"
 LABEL "com.github.actions.description"="Common filters to stop workflows"
@@ -21,6 +21,5 @@ ENV PATH="/usr/local/bin:${PATH}"
 
 COPY bin /usr/local/bin/
 COPY entrypoint.sh /entrypoint.sh
-
 
 ENTRYPOINT ["/entrypoint.sh"]
