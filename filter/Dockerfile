@@ -21,4 +21,4 @@ ENV PATH="/usr/local/bin:${PATH}"
 
 COPY bin /usr/local/bin/
 
-ENTRYPOINT sh -c
+ENTRYPOINT ["sh", "-c"]
