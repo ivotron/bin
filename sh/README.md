@@ -7,7 +7,7 @@ Executes each command listed in the Action's `args` via `sh -c`.
 ```
 action "Shell" {
   uses = "actions/bin/sh@master"
-  args = "ls -ltr"
+  args = ["ls -ltr"]
 }
 ```
 
