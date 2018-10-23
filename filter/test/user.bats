@@ -26,7 +26,7 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/event.json"
 
 @test "user: does not match" {
   run user some-other-user
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 78 ]
   echo $output
   [ "$output" = "user does not match" ]
 }
