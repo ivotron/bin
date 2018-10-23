@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+if [ -z "$GITHUB_EVENT_PATH" ]; then
+  echo "\$GITHUB_EVENT_PATH" not found
+  exit 1
+fi
+
+expected="$1"
+expr=".pull_request.user.login == \"$expected\" or \
+      .issue.user.login == \"$expected\""
+if ! cat "$GITHUB_EVENT_PATH" | jq -e "$expr" > /dev/null; then
+  echo "user does not match \"$expected\""
+  exit 1
+fi

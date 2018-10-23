@@ -8,6 +8,14 @@
       {
         "name": "bug"
       }
-    ]
+    ],
+    "user": {
+      "login": "issue-user"
+    }
+  },
+  "pull_request": {
+    "user": {
+      "login": "pr-user"
+    }
   }
 }
