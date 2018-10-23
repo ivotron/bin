@@ -12,5 +12,8 @@ fi
 matches=$(jq -r "$filter" "$GITHUB_EVENT_PATH")
 
 for label in "$@"; do
-  echo "$matches" | grep -Eq "^$label$"
+  echo "$matches" | grep -Eq "^$label$" || {
+    echo "label \"$label\", does not match \"$matches\""
+    exit 76
+  }
 done

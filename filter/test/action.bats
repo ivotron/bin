@@ -14,7 +14,7 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/event.json"
 
 @test "action: does not match" {
   run action edited
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 76 ]
   echo $output
   [ "$output" = "action is \"created\", not \"edited\"" ]
 }
@@ -29,6 +29,6 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/event.json"
 @test "action: does not match a or b" {
   run action "edited|deleted"
   echo $output
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 76 ]
   [ "$output" = "action is \"created\", not \"edited|deleted\"" ]
 }
