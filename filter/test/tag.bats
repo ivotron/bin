@@ -23,7 +23,7 @@ PATH="$PATH:$BATS_TEST_DIRNAME/../bin"
   export GITHUB_REF=refs/heads/master
   run tag
   echo output: $output
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 78 ]
   [ "$output" = "refs/heads/master does not match refs/tags/*" ]
 }
 
@@ -34,6 +34,6 @@ PATH="$PATH:$BATS_TEST_DIRNAME/../bin"
   [ "$output" = "refs/tags/v1.2.3 matches refs/tags/v1*" ]
 
   run tag release*
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 78 ]
   [ "$output" = "refs/tags/v1.2.3 does not match refs/tags/release*" ]
 }

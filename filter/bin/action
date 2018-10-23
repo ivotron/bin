@@ -12,5 +12,5 @@ actual=$(jq -r .action "$GITHUB_EVENT_PATH")
 
 echo "$actual" | grep -Eq "^$expected$" || {
   echo "action is \"$actual\", not \"$expected\""
-  exit 1
+  exit 78
 }

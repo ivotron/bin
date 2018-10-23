@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 LABEL "name"="filter"
 LABEL "maintainer"="GitHub Actions <support+actions@github.com>"
-LABEL "version"="1.0.2"
+LABEL "version"="1.1.0"
 
 LABEL "com.github.actions.name"="Filters for GitHub Actions"
 LABEL "com.github.actions.description"="Common filters to stop workflows"
