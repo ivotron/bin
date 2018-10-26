@@ -11,18 +11,18 @@ workflow "Page Someone" {
 }
 
 action "Check for label" {
-  uses = "actions/bin/filter"
+  uses = "actions/bin/filter@master"
   args = "label urgent"
 }
 
 action "Labeled" {
-  uses = "actions/bin/filter"
+  uses = "actions/bin/filter@master"
   args = "action labeled"
 }
 
 action "Send Pages" {
   needs = ["Labeled", "Check for label"]
-  uses = "actions/twilio-sms"
+  uses = "actions/twilio-sms@master"
   secrets = ["TWILIO_TOKEN", "NUMBERS"]
 }
 ```
@@ -35,7 +35,7 @@ Continue if the event is a tag.
 
 ```workflow
 action "tag-filter" {
-  uses = "actions/bin/filter"
+  uses = "actions/bin/filter@master"
   args = "tag"
 }
 ```
@@ -52,7 +52,7 @@ Continue if the event is a branch.
 
 ```workflow
 action "branch-filter" {
-  uses = "actions/bin/filter"
+  uses = "actions/bin/filter@master"
   args = "branch"
 }
 ```
@@ -69,7 +69,7 @@ Continue if the event ref matches a pattern.
 
 ```workflow
 action "branch-filter" {
-  uses = "actions/bin/filter"
+  uses = "actions/bin/filter@master"
   args = "ref refs/pulls/*"
 }
 ```
@@ -80,7 +80,7 @@ Continue if the issue or pull request has the following label
 
 ```workflow
 action "label-filter" {
-  uses = "actions/bin/filter"
+  uses = "actions/bin/filter@master"
   args = "label urgent"
 }
 ```
@@ -91,7 +91,7 @@ Continue if the event payload includes a matching action.
 
 ```workflow
 action "action-filter" {
-  uses = "actions/bin/filter"
+  uses = "actions/bin/filter@master"
   args = "action synchronized"
 }
 ```
@@ -100,7 +100,7 @@ This also supports multiple actions.
 
 ```workflow
 action "action-filter" {
-  uses = "actions/bin/filter"
+  uses = "actions/bin/filter@master"
   args = ["action", "opened|synchronized"]
 }
 ```
