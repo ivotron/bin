@@ -2,28 +2,37 @@
 
 This action includes common filters to stop workflows unless certain conditions are met.
 
-For example, here is a workflow that sends an SMS when an issue is labeled and the `urgent` label was added:
+For example, here is a workflow that publishes a package to npm when the `master` branch receives a `push`:
 
 ```workflow
-workflow "Page Someone" {
-  on = "issues"
-  resolves = "Send Pages"
+workflow "Build, Test, and Publish" {
+  on = "push"
+  resolves = ["Publish"]
 }
 
-action "Check for label" {
+action "Build" {
+  uses = "actions/npm@master"
+  args = "install"
+}
+
+action "Test" {
+  needs = "Build"
+  uses = "actions/npm@master"
+  args = "test"
+}
+
+# Filter for master branch
+action "Master" {
+  needs = "Test"
   uses = "actions/bin/filter@master"
-  args = "label urgent"
+  args = "branch master"
 }
 
-action "Labeled" {
-  uses = "actions/bin/filter@master"
-  args = "action labeled"
-}
-
-action "Send Pages" {
-  needs = ["Labeled", "Check for label"]
-  uses = "actions/twilio-sms@master"
-  secrets = ["TWILIO_TOKEN", "NUMBERS"]
+action "Publish" {
+  needs = "Master"
+  uses = "actions/npm@master"
+  args = "publish --access public"
+  secrets = ["NPM_AUTH_TOKEN"]
 }
 ```
 
