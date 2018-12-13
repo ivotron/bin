@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+filter='[.pull_request.user.login, .issue.user.login]'
+
+if [ -z "$GITHUB_EVENT_PATH" ]; then
+  echo "\$GITHUB_EVENT_PATH" not found
+  exit 1
+fi
+
+matches=$(jq -r "$filter" "$GITHUB_EVENT_PATH")
+
+for user in "$@"; do
+  if echo "$matches" | grep -Eq "\"$user\""; then
+    exit 0
+  fi
+done
+
+echo "user does not match"
+exit 78
