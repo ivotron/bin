@@ -101,7 +101,7 @@ Continue if the event payload includes a matching action.
 ```workflow
 action "action-filter" {
   uses = "actions/bin/filter@master"
-  args = "action synchronized"
+  args = "action synchronize"
 }
 ```
 
@@ -110,7 +110,7 @@ This also supports multiple actions.
 ```workflow
 action "action-filter" {
   uses = "actions/bin/filter@master"
-  args = ["action", "opened|synchronized"]
+  args = ["action", "opened|synchronize"]
 }
 ```
 
