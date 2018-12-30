@@ -1,5 +1,8 @@
 {
   "action": "created",
+  "comment": {
+    "body": "lgtm"
+  },
   "issue": {
     "labels": [
       {
