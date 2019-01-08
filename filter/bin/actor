@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+if [ -z "$GITHUB_ACTOR" ]; then
+  echo "\$GITHUB_ACTOR" not found
+  exit 1
+fi
+
+expected="$1"
+
+echo "$GITHUB_ACTOR" | grep -Eq "^$expected$" || {
+  echo "user/application which initiated the action was \"$GITHUB_ACTOR\", not \"$expected\""
+  exit 78
+}
+
