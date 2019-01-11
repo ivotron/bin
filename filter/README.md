@@ -119,7 +119,7 @@ action "action-filter" {
 Continues when the initiator of a workflow matches a GitHub username.
 
 ```workflow
-action "action-filter" {
+action "actor-filter" {
   uses = "actions/bin/filter@master"
   args = "actor octocat"
 }
@@ -128,7 +128,7 @@ action "action-filter" {
 This also supports multiple possible actors:
 
 ```workflow
-action "action-filter" {
+action "actor-filter" {
   uses = "actions/bin/filter@master"
   args = ["actor", "octocat|torvalds"]
 }
