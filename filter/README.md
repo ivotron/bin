@@ -94,6 +94,19 @@ action "label-filter" {
 }
 ```
 
+
+### comment
+
+Continue if the issue or pull request has the following comment
+
+```workflow
+action "comment-filter" {
+  uses = "actions/bin/filter@master"
+  args = "comment lgtm"
+}
+```
+
+
 ### action
 
 Continue if the event payload includes a matching action.
