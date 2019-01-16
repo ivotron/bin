@@ -2,7 +2,7 @@
 
 set -e
 
-filter='.issue.labels[].name'
+filter='(.issue.labels // [])[].name'
 
 if [ -z "$GITHUB_EVENT_PATH" ]; then
   echo "\$GITHUB_EVENT_PATH" not found
