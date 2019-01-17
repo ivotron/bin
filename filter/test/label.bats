@@ -25,3 +25,9 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/event.json"
   run label urgent feature
   [ "$status" -eq 78 ]
 }
+
+
+@test "label: does not match when no label" {
+  GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/empty_event.json" run label feature
+  [ "$status" -eq 78 ]
+}
