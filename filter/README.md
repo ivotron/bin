@@ -130,7 +130,7 @@ This also supports multiple possible actors:
 ```workflow
 action "actor-filter" {
   uses = "actions/bin/filter@master"
-  args = ["actor", "octocat|torvalds"]
+  args = ["actor", "octocat", "torvalds"]
 }
 ```
 

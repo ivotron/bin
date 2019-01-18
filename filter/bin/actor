@@ -7,10 +7,14 @@ if [ -z "$GITHUB_ACTOR" ]; then
   exit 1
 fi
 
-expected="$1"
+for username in "$@"
+do
+    if [ "$username" = "$GITHUB_ACTOR" ]; then
+        SUCCESS=true
+    fi
+done
 
-echo "$GITHUB_ACTOR" | grep -Eq "^$expected$" || {
-  echo "user/application which initiated the action was \"$GITHUB_ACTOR\", not \"$expected\""
+if [ "$SUCCESS" != true ]; then
+  echo "user/application which initiated the action was \"$GITHUB_ACTOR\", not one of \"$*\""
   exit 78
-}
-
+fi
