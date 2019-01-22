@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+filter='[.deployment.environment]'
+
+if [ -z "$GITHUB_EVENT_PATH" ]; then
+  echo "\$GITHUB_EVENT_PATH" not found
+  exit 1
+fi
+
+matches=$(jq -r "$filter" "$GITHUB_EVENT_PATH")
+
+for environment in "$@"; do
+  if echo "$matches" | grep -Eq "\"$environment\""; then
+    exit 0
+  fi
+done
+
+echo "environment does not match"
+exit 78
