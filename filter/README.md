@@ -114,6 +114,26 @@ action "action-filter" {
 }
 ```
 
+### environment
+
+Continue if the event payload includes a matching environment.
+
+```workflow
+action "environment-filter" {
+  uses = "actions/bin/filter@master"
+  args = "environment production"
+}
+```
+
+This also supports multiple environments.
+
+```workflow
+action "environment-filter" {
+  uses = "actions/bin/filter@master"
+  args = ["environment", "staging", "production"]
+}
+```
+
 ## License
 
 The Dockerfile and associated scripts and documentation in this project are released under the [MIT License](LICENSE).
