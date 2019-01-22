@@ -16,7 +16,7 @@ export GITHUB_ACTOR="octocat"
   run actor nat
   [ "$status" -eq 78 ]
   echo $output
-  [ "$output" = "user/application which initiated the action was \"octocat\", not one of \"nat\"" ]
+  [ "$output" = "actor is \"octocat\", not any of \"nat\"" ]
 }
 
 @test "actor: matches a or b" {
@@ -30,5 +30,5 @@ export GITHUB_ACTOR="octocat"
   run actor torvalds nat
   echo $output
   [ "$status" -eq 78 ]
-  [ "$output" = "user/application which initiated the action was \"octocat\", not one of \"torvalds nat\"" ]
+  [ "$output" = "actor is \"octocat\", not any of \"torvalds nat\"" ]
 }
