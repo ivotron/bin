@@ -13,6 +13,6 @@ expected="$1"
 actual=$(jq -r "$filter" "$GITHUB_EVENT_PATH")
 
 echo "$actual" | grep -Eq "^$expected$" || {
-  echo "comment is \"$actual\", not \"$expected\""
+  echo "issue_comment is \"$actual\", not \"$expected\""
   exit 78
 }

@@ -95,14 +95,14 @@ action "label-filter" {
 ```
 
 
-### comment
+### issue_comment
 
-Continue if the issue or pull request has the following comment
+Continue if the issue or pull request has the following issue_comment
 
 ```workflow
-action "comment-filter" {
+action "issue-comment-filter" {
   uses = "actions/bin/filter@master"
-  args = "comment lgtm"
+  args = "issue_comment lgtm"
 }
 ```
 
