@@ -2,18 +2,23 @@
 
 set -e
 
-filter='select(.issue.labels!=null) | .issue.labels[].name'
+filter_issues='select(.issue.labels!=null) | .issue.labels[].name'
+filter_pullrequests='select(.pull_request.labels!=null) | .pull_request.labels[].name'
 
 if [ -z "$GITHUB_EVENT_PATH" ]; then
   echo "\$GITHUB_EVENT_PATH" not found
   exit 1
 fi
 
-matches=$(jq -r "$filter" "$GITHUB_EVENT_PATH")
+matches_issues=$(jq -r "$filter_issues" "$GITHUB_EVENT_PATH")
+matches_pullrequests=$(jq -r "$filter_pullrequests" "$GITHUB_EVENT_PATH")
 
 for label in "$@"; do
-  echo "$matches" | grep -Eq "^$label$" || {
-    echo "label \"$label\", does not match \"$matches\""
-    exit 78
+  echo "$matches_issues" | grep -Eq "^$label$" || {
+    echo "label \"$label\", does not match \"$(echo $matches_issues | paste -sd, -)\""
+    echo "$matches_pullrequests" | grep -Eq "^$label$" || {
+      echo "label \"$label\", does not match \"$(echo $matches_pullrequests | paste -sd, -)\""
+      exit 78
+    }
   }
 done
