@@ -1,6 +1,6 @@
 {
   "action": "created",
-  "issue": {
+  "pull_request": {
     "labels": [
       {
         "name": "urgent"
@@ -10,7 +10,7 @@
       }
     ],
     "user": {
-      "login": "issue-user"
+      "login": "user"
     }
   }
 }
