@@ -2,7 +2,7 @@
 
 set -e
 
-filter='select(.issue.labels!=null) | .issue.labels[].name'
+filter="([] + .issue.labels + .pull_request.labels)[].name"
 
 if [ -z "$GITHUB_EVENT_PATH" ]; then
   echo "\$GITHUB_EVENT_PATH" not found
@@ -13,7 +13,7 @@ matches=$(jq -r "$filter" "$GITHUB_EVENT_PATH")
 
 for label in "$@"; do
   echo "$matches" | grep -Eq "^$label$" || {
-    echo "label \"$label\", does not match \"$matches\""
+    echo "label \"$label\", does not match \"$(echo $matches | paste -sd, -)\""
     exit 78
   }
 done

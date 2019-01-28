@@ -11,6 +11,11 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/event.json"
   [ "$status" -eq 0 ]
 }
 
+@test "label: matches pull request" {
+  export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/pull_request_event.json" run label urgent
+  [ "$status" -eq 0 ]
+}
+
 @test "label: matches all" {
   run label urgent bug
   [ "$status" -eq 0 ]
