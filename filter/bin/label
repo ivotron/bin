@@ -3,7 +3,7 @@
 set -e
 
 filter_issues='select(.issue.labels!=null) | .issue.labels[].name'
-filter_pullrequests='select(.pull_request.labels!=null) | .pull_request.labels[].name'
+filter="([] + .issue.labels + .pull_request.labels)[].name"
 
 if [ -z "$GITHUB_EVENT_PATH" ]; then
   echo "\$GITHUB_EVENT_PATH" not found
