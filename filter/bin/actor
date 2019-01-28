@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+if [ -z "$GITHUB_ACTOR" ]; then
+  echo "\$GITHUB_ACTOR" not found
+  exit 1
+fi
+
+for actor in "$@"; do
+    if [ "$actor" = "$GITHUB_ACTOR" ]; then
+        exit 0
+    fi
+done
+
+echo "actor is \"$GITHUB_ACTOR\", not any of \"$*\""
+exit 78

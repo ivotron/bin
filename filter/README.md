@@ -127,6 +127,26 @@ action "action-filter" {
 }
 ```
 
+### actor
+
+Continues when the initiator of a workflow matches a GitHub username.
+
+```workflow
+action "actor-filter" {
+  uses = "actions/bin/filter@master"
+  args = "actor octocat"
+}
+```
+
+This also supports multiple possible actors:
+
+```workflow
+action "actor-filter" {
+  uses = "actions/bin/filter@master"
+  args = ["actor", "octocat", "torvalds"]
+}
+```
+
 ## License
 
 The Dockerfile and associated scripts and documentation in this project are released under the [MIT License](LICENSE).
