@@ -1,14 +1,19 @@
 #!/bin/sh
 
+if [ -z "$*" ]; then
+  echo "nothing to exclude"
+  exit 1
+fi
+
 output=$(sh -c "$*")
 exit_status=$?
 if [ $exit_status -eq 0 ]; then
-	echo "excluding match"
-	exit 78
+  echo "excluding match"
+  exit 78
 elif [ $exit_status -eq 78 ]; then
-	echo "excluding non-match: $output"
-	exit 0
+  echo "excluding non-match: $output"
+  exit 0
 else
-	echo $output
+  echo $output
   exit $exit_status
 fi

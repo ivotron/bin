@@ -26,3 +26,11 @@ export GITHUB_ACTOR="octocat"
   [ "$status" -eq 100 ]
   [ "$output" = "" ]
 }
+
+@test "exclude: nothing to exclude" {
+  run exclude
+  echo $output
+  [ "$status" -eq 1 ]
+  [ "$output" = "nothing to exclude" ]
+}
+
