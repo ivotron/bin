@@ -147,6 +147,18 @@ action "actor-filter" {
 }
 ```
 
+### exclude
+
+Used to invert other filters.
+
+```workflow
+action "tag-filter" {
+  uses = "actions/bin/filter@master"
+  args = "exclude actor octocat"
+"
+}
+```
+
 ## License
 
 The Dockerfile and associated scripts and documentation in this project are released under the [MIT License](LICENSE).
