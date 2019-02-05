@@ -14,6 +14,6 @@ elif [ $exit_status -eq 78 ]; then
   echo "reversing non-match: $output"
   exit 0
 else
-  echo $output
-  exit $exit_status
+  echo "$output"
+  exit "$exit_status"
 fi
