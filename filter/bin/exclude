@@ -6,7 +6,7 @@ if [ -z "$*" ]; then
 fi
 
 output=$(sh -c "$*")
-exit_status=$?
+exit_status="$?"
 if [ $exit_status -eq 0 ]; then
   echo "excluding match"
   exit 78
