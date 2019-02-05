@@ -147,14 +147,14 @@ action "actor-filter" {
 }
 ```
 
-### exclude
+### not
 
-Used to invert other filters.
+Used to provide the logical opposite of other filters.
 
 ```workflow
 action "tag-filter" {
   uses = "actions/bin/filter@master"
-  args = "exclude actor octocat"
+  args = "not actor octocat"
 "
 }
 ```

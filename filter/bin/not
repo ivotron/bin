@@ -1,17 +1,17 @@
 #!/bin/sh
 
 if [ -z "$*" ]; then
-  echo "nothing to exclude"
+  echo "nothing to reverse"
   exit 1
 fi
 
 output=$(sh -c "$*")
 exit_status="$?"
 if [ $exit_status -eq 0 ]; then
-  echo "excluding match"
+  echo "reversing match"
   exit 78
 elif [ $exit_status -eq 78 ]; then
-  echo "excluding non-match: $output"
+  echo "reversing non-match: $output"
   exit 0
 else
   echo $output
