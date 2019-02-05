@@ -7,7 +7,7 @@ PATH="$PATH:$BATS_TEST_DIRNAME/../bin"
 export GITHUB_ACTOR="octocat"
 
 @test "not: actor matches turns into no match" {
-  run not actor octocareverse
+  run not actor octocat
   echo $output
   [ "$status" -eq 78 ]
   [ "$output" = "reversing match" ]

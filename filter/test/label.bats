@@ -12,7 +12,8 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/event.json"
 }
 
 @test "label: matches pull request" {
-  export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/pull_request_event.json" run label urgent
+  export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/pull_request_event.json"
+	run label urgent
   [ "$status" -eq 0 ]
 }
 
