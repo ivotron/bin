@@ -147,6 +147,18 @@ action "actor-filter" {
 }
 ```
 
+### not
+
+Used to provide the logical opposite of other filters.
+
+```workflow
+action "tag-filter" {
+  uses = "actions/bin/filter@master"
+  args = "not actor octocat"
+"
+}
+```
+
 ## License
 
 The Dockerfile and associated scripts and documentation in this project are released under the [MIT License](LICENSE).

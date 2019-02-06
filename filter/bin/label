@@ -13,7 +13,7 @@ matches=$(jq -r "$filter" "$GITHUB_EVENT_PATH")
 
 for label in "$@"; do
   echo "$matches" | grep -Eq "^$label$" || {
-    echo "label \"$label\", does not match \"$(echo $matches | paste -sd, -)\""
+    echo "label \"$label\", does not match \"$(echo "$matches" | paste -sd, -)\""
     exit 78
   }
 done

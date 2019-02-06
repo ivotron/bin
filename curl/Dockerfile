@@ -13,7 +13,9 @@ COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
 
 COPY entrypoint.sh /entrypoint.sh
 
-RUN apt-get update && apt-get install curl -y
+RUN apt-get update && \
+	apt-get install curl -y && \
+	apt-get clean -y
 
 ENTRYPOINT ["/entrypoint.sh"]
 

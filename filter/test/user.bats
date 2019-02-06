@@ -13,6 +13,7 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/event.json"
 }
 
 @test "user: matches pr user" {
+  export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/pull_request_event.json" run label urgent
   run user pr-user
   [ "$status" -eq 0 ]
   [ "$output" = "" ]
