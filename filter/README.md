@@ -155,7 +155,6 @@ Used to provide the logical opposite of other filters.
 action "tag-filter" {
   uses = "actions/bin/filter@master"
   args = "not actor octocat"
-"
 }
 ```
 
