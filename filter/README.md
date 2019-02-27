@@ -55,6 +55,23 @@ Optionally supply a pattern of tags to match:
   args = "tag v*"
 ```
 
+### deleted_tag
+
+Continue if the event which run on 'delete' is a tag.
+
+```workflow
+action "tag-filter" {
+  uses = "actions/bin/filter@master"
+  args = "deleted_tag"
+}
+```
+
+Optionally supply a pattern of tags to match:
+
+```workflow
+  args = "deleted_tag v*"
+```
+
 ### branch
 
 Continue if the event is a branch.
