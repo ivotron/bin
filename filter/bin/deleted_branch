@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+
+pattern="${1:-*}"
+
+if [ -z "$GITHUB_EVENT_PATH" ]; then
+  echo "\$GITHUB_EVENT_PATH" is not set
+  exit 1
+fi
+
+DELETE_EVENT_REF_TYPE=$(jq --raw-output .ref_type "$GITHUB_EVENT_PATH")
+if [ "$DELETE_EVENT_REF_TYPE" != "branch" ]; then
+  echo "ref_type is not a branch: ${DELETE_EVENT_REF_TYPE}"
+  exit 78
+fi
+
+exec deleted_ref "$pattern"

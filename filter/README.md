@@ -66,10 +66,27 @@ action "branch-filter" {
 }
 ```
 
-Optionally supply a pattern to match:
+Optionally supply a pattern of branches to match:
 
 ```workflow
   args = "branch stable-*"
+```
+
+### deleted_branch
+
+Continue if the event which run on 'delete' is a branch.
+
+```workflow
+action "branch-filter" {
+  uses = "actions/bin/filter@master"
+  args = "deleted_branch"
+}
+```
+
+Optionally supply a pattern of branches to match:
+
+```workflow
+  args = "deleted_branch stable-*"
 ```
 
 ### ref

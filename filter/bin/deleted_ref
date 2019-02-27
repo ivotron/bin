@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+pattern=$1
+
+DELETE_EVENT_REF=$(jq --raw-output .ref "$GITHUB_EVENT_PATH")
+
+case "$DELETE_EVENT_REF" in
+  "")
+    echo ".ref field does not exist"
+    exit 1
+    ;;
+  $pattern)
+    echo "matches $pattern"
+    exit 0
+    ;;
+  *)
+    echo "does not match $pattern"
+    exit 78
+esac
