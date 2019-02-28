@@ -6,7 +6,7 @@ PATH="$PATH:$BATS_TEST_DIRNAME/../bin"
 
 export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/delete_tag_event.json"
 
-@test "deleted_tag: without a event file" {
+@test "deleted_tag: without an event file" {
   unset GITHUB_EVENT_PATH
   run deleted_tag
   [ "$status" -eq 1 ]
@@ -35,5 +35,5 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/delete_tag_event.json"
 @test "deleted_tag: does not match" {
   run deleted_tag release-*
   [ "$status" -eq 78 ]
-  [ "$output" = "does not match release-*" ]
+  [ "$output" = "v1.2.3 does not match release-*" ]
 }

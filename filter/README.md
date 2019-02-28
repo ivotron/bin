@@ -57,7 +57,7 @@ Optionally supply a pattern of tags to match:
 
 ### deleted_tag
 
-Continue if the event which run on 'delete' is a tag.
+Continue if the event deletes a tag.
 
 ```workflow
 action "tag-filter" {
@@ -91,7 +91,7 @@ Optionally supply a pattern of branches to match:
 
 ### deleted_branch
 
-Continue if the event which run on 'delete' is a branch.
+Continue if the event deletes a branch.
 
 ```workflow
 action "branch-filter" {

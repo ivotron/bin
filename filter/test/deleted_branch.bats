@@ -6,7 +6,7 @@ PATH="$PATH:$BATS_TEST_DIRNAME/../bin"
 
 export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/delete_branch_event.json"
 
-@test "deleted_branch: without a event file" {
+@test "deleted_branch: without an event file" {
   unset GITHUB_EVENT_PATH
   run deleted_branch
   [ "$status" -eq 1 ]
@@ -35,5 +35,5 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/delete_branch_event.json"
 @test "deleted_branch: does not match" {
   run deleted_branch release-*
   [ "$status" -eq 78 ]
-  [ "$output" = "does not match release-*" ]
+  [ "$output" = "feature-new-command does not match release-*" ]
 }
