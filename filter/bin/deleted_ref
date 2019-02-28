@@ -16,6 +16,6 @@ case "$DELETE_EVENT_REF" in
     exit 0
     ;;
   *)
-    echo "$DELETED_EVENT_REF does not match $pattern"
+    echo "$DELETE_EVENT_REF does not match $pattern"
     exit 78
 esac

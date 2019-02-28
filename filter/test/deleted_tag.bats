@@ -16,7 +16,7 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/delete_tag_event.json"
 @test "deleted_tag: ref_type is a tag" {
   run deleted_tag
   [ "$status" -eq 0 ]
-  [ "$output" = "matches *" ]
+  [ "$output" = "v1.2.3 matches *" ]
 }
 
 @test "deleted_tag: ref_type is a branch" {
@@ -29,7 +29,7 @@ export GITHUB_EVENT_PATH="$BATS_TEST_DIRNAME/fixtures/delete_tag_event.json"
 @test "deleted_tag: matches" {
   run deleted_tag v1*
   [ "$status" -eq 0 ]
-  [ "$output" = "matches v1*" ]
+  [ "$output" = "v1.2.3 matches v1*" ]
 }
 
 @test "deleted_tag: does not match" {
