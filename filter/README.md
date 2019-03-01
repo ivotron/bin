@@ -55,6 +55,23 @@ Optionally supply a pattern of tags to match:
   args = "tag v*"
 ```
 
+### deleted_tag
+
+Continue if the event deletes a tag.
+
+```workflow
+action "tag-filter" {
+  uses = "actions/bin/filter@master"
+  args = "deleted_tag"
+}
+```
+
+Optionally supply a pattern of tags to match:
+
+```workflow
+  args = "deleted_tag v*"
+```
+
 ### branch
 
 Continue if the event is a branch.
@@ -66,10 +83,27 @@ action "branch-filter" {
 }
 ```
 
-Optionally supply a pattern to match:
+Optionally supply a pattern of branches to match:
 
 ```workflow
   args = "branch stable-*"
+```
+
+### deleted_branch
+
+Continue if the event deletes a branch.
+
+```workflow
+action "branch-filter" {
+  uses = "actions/bin/filter@master"
+  args = "deleted_branch"
+}
+```
+
+Optionally supply a pattern of branches to match:
+
+```workflow
+  args = "deleted_branch stable-*"
 ```
 
 ### ref
