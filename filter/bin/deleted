@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+pattern="${1:-*}"
+
+if [ -z "$GITHUB_EVENT_PATH" ]; then
+  echo "\$GITHUB_EVENT_PATH is not set"
+  exit 1
+fi
+
+DELETED="$(jq '.deleted' < "$GITHUB_EVENT_PATH")"
+if [ "$DELETED" != "true" ]; then
+  echo "Event does not delete a branch or tag."
+  exit 78
+fi
