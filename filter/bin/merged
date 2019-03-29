@@ -2,7 +2,7 @@
 
 set -e
 
-action closed
+exec action closed
 
 expected="$1"
 actual=$(jq -r .pull_request.merged "$GITHUB_EVENT_PATH")
