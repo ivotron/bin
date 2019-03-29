@@ -1,6 +1,7 @@
 {
-  "action": "created",
+  "action": "closed",
   "pull_request": {
+    "merged": "false",
     "labels": [
       {
         "name": "urgent"

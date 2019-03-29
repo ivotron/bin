@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+action closed
+
+expected="$1"
+actual=$(jq -r .pull_request.merged "$GITHUB_EVENT_PATH")
+
+echo "$actual" | grep -Eq "^$expected$" || {
+  echo "merged is \"$actual\", not \"$expected\""
+  exit 78
+}

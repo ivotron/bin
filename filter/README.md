@@ -211,6 +211,25 @@ action "environment-filter" {
   args = ["environment", "staging", "production"]
 }
 ```
+### merged
+
+Continue if the pull request is merged & closed.
+
+```workflow
+action "merged-filter" {
+  uses = "actions/bin/filter@master"
+  args = "merged true"
+}
+```
+
+Continue if the pull request is closed with unmerged commits.
+
+```workflow
+action "merged-filter" {
+  uses = "actions/bin/filter@master"
+  args = "merged false"
+}
+```
 
 ## License
 
