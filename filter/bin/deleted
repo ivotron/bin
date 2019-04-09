@@ -2,8 +2,6 @@
 
 set -e
 
-pattern="${1:-*}"
-
 if [ -z "$GITHUB_EVENT_PATH" ]; then
   echo "\$GITHUB_EVENT_PATH is not set"
   exit 1
