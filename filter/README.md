@@ -43,7 +43,7 @@ action "Publish" {
 Continue if the event deletes a branch or tag.
 
 ```workflow
-action "tag-filter" {
+action "deleted-filter" {
   uses = "actions/bin/filter@master"
   args = "deleted"
 }
