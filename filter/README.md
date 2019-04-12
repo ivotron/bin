@@ -186,7 +186,7 @@ action "actor-filter" {
 Used to provide the logical opposite of other filters.
 
 ```workflow
-action "tag-filter" {
+action "not-filter" {
   uses = "actions/bin/filter@master"
   args = "not actor octocat"
 }
