@@ -38,6 +38,17 @@ action "Publish" {
 
 ## Available filters
 
+### deleted
+
+Continue if the event deletes a branch or tag.
+
+```workflow
+action "deleted-filter" {
+  uses = "actions/bin/filter@master"
+  args = "deleted"
+}
+```
+
 ### tag
 
 Continue if the event is a tag.
