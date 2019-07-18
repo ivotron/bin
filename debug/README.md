@@ -13,7 +13,7 @@ workflow "Launch the rescue mission" {
 }
 
 action "debug" {
-  uses = "actions/bin/debug"
+  uses = "actions/bin/debug@master"
 }
 ```
 
